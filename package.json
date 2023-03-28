@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint ./src --ext .ts,.js,.tsx,.jsx",
-    "lint:fix": "eslint --fix ./src --ext .ts,.js,.tsx,.jsx",
+    "lint:fix": "eslint ./src --ext .ts,.js,.tsx,.jsx --fix",
     "format": "prettier --write --loglevel=warn 'src/**/*.{js,jsx,ts,tsx,html,json,gql,graphql}'",
-    "prepare": "npx simple-git-hooks || :"
+    "prepare": "yarn simple-git-hooks || :"
   },
   "dependencies": {
     "@types/node": "18.15.10",
