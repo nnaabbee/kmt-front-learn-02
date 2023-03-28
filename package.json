@@ -8,8 +8,7 @@
     "start": "next start",
     "lint": "eslint ./src --ext .ts,.js,.tsx,.jsx",
     "lint:fix": "eslint ./src --ext .ts,.js,.tsx,.jsx --fix",
-    "format": "prettier --write --loglevel=warn 'src/**/*.{js,jsx,ts,tsx,html,json,gql,graphql}'",
-    "prepare": "yarn simple-git-hooks || :"
+    "format": "prettier --write --loglevel=warn 'src/**/*.{js,jsx,ts,tsx,html,json,gql,graphql}'"
   },
   "dependencies": {
     "@types/node": "18.15.10",
@@ -32,9 +31,6 @@
     "lint-staged": "^13.2.0",
     "prettier": "^2.8.7",
     "simple-git-hooks": "^2.8.1"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
