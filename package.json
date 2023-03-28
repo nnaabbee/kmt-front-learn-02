@@ -37,8 +37,8 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "prettier --write --loglevel=warn 'src/**/*.{js,jsx,ts,tsx,html,json,gql,graphql}'",
-      "eslint --fix ./src --ext .ts,.js,.tsx,.jsx"
+      "yarn format",
+      "lint:fix"
     ]
   }
 }
