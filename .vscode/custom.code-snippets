@@ -1,0 +1,23 @@
+{
+  "Page Component": {
+    "scope": "typescriptreact",
+    "prefix": "page component",
+    "body": [
+      "import { memo } from \"react\"",
+      "",
+      "type Props = {}",
+      "",
+      "const ${1:ComponentName} = memo<Props>(() => {",
+      "  return null$0",
+      "})",
+      "",
+      "export default $1",
+      ""
+    ]
+  },
+  "Enum Template": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "enum",
+    "body": ["const ${1:EnumName} = Object.freeze({", "  $0", "} as const)", "", "type $1 = typeof $1[keyof typeof $1]", ""]
+  }
+}

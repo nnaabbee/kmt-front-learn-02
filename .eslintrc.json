@@ -1,3 +1,85 @@
 {
-  "extends": "next/core-web-vitals"
+  // わからないところはChatGPTで補強してます、誤情報もあるかもなので参考程度で！
+  // 上から適用され、下に書いたものが最終的に残る
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "settings": {
+    "react": {
+      // Reactプラグインを使用している場合、settingsオブジェクトを使用して、Reactに関する設定を指定できる
+      // 基本detectでよさそう
+      "version": "detect"
+    }
+  },
+  // 1.この設定がない場合、ESLintはTypeScriptファイルに対してルールを適用しません
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  // TypeScriptの構文を理解することができ、TypeScript専用のルールを適用することができる
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "tsconfigRootDir": ".",
+    // "project" オプションには、TypeScript プロジェクトの構成情報が含まれた tsconfig.json ファイルのパスを指定する
+    // !でそのファイルを解析しないように指示
+    "project": ["./tsconfig.json", "!./next.config.js"],
+    "sourceType": "module"
+  },
+  // ESLintがブラウザ、Node.js、およびES6（ECMAScript 2015）で使用されるグローバル変数にアクセスできるようになる
+  // この設定がない場合、ESLintはデフォルトのグローバル変数のみにアクセスできる
+  "env": {
+    "browser": true,
+    "node": true,
+    "es2022": true
+  },
+  // 0: 無効、1: 警告、 2: エラー
+  "rules": {
+    "prettier/prettier": [2, { "singleQuote": false, "semi": false }],
+    // JSXファイルの先頭にimport React from 'react'を追加するルールを無効化
+    "react/react-in-jsx-scope": 0,
+    // Reactのコンポーネントで、displayNameプロパティが存在しない場合にエラーを発生させるルールを無効化
+    "react/display-name": 0,
+    // Reactのコンポーネントで、propsの型を検証するルールを無効化
+    "react/prop-types": 0,
+    // TypeScriptの関数に戻り値の型を指定することを強制するルールを無効化
+    "@typescript-eslint/explicit-function-return-type": 0,
+    // TypeScriptで、クラスのメンバーにアクセス修飾子を指定することを強制するルールを無効化
+    "@typescript-eslint/explicit-member-accessibility": 0,
+    // TypeScriptのインデントスタイルを指定するルールを無効化
+    "@typescript-eslint/indent": 0,
+    // TypeScriptで、プロパティの区切り記号を指定するルールを無効化
+    "@typescript-eslint/member-delimiter-style": 0,
+    // any型の使用を許可しない
+    "@typescript-eslint/no-explicit-any": 2,
+    // require()の使用を禁止するルールを設定
+    "@typescript-eslint/no-var-requires": 2,
+    // 変数が宣言される前に使用された場合にエラーを発生させるルールを無効化
+    "@typescript-eslint/no-use-before-define": 0,
+    // 未使用の変数を検出するルールを設定
+    "@typescript-eslint/no-unused-vars": [
+      2,
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
+    // consoleオブジェクトの使用を禁止
+    "no-console": [
+      2,
+      {
+        // warnとerrorだけは使えるようになる
+        "allow": ["warn", "error"]
+      }
+    ],
+    // React Hooksを正しく使用するためのルール、ファイル名がuseで始まっているかどうか
+    "react-hooks/rules-of-hooks": 2,
+    // フックの依存リストが十分に設定されているかどうかを検査するルール
+    "react-hooks/exhaustive-deps": 2,
+    // TypeScriptで switch 文を使用する際に、すべてのケースが網羅されているかどうかを検査するルール
+    "@typescript-eslint/switch-exhaustiveness-check": 2
+  }
 }
