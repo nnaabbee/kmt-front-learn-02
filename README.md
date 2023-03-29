@@ -43,3 +43,9 @@ yarn add @mantine/core @mantine/hooks @mantine/modals @mantine/tiptap @tabler/ic
 ```
 
 その後、\_document.tsx と\_app.tsx を修正する
+
+また、styled を使えるように以下もインストールしておく
+
+```bash
+yarn add @emotion/styled
+```

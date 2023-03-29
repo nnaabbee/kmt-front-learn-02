@@ -4,5 +4,5 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": ["source.fixAll.eslint"],
   "workbench.editor.enablePreview": false,
-  "cSpell.words": ["mantine"]
+  "cSpell.words": ["mantine", "tabler", "tiptap"]
 }
